@@ -165,7 +165,7 @@ export default function Profile(props) {
                     <div
                         style={{
                             display: 'flex',
-                            justifyContent: 'space-between',
+                            justifyContent: 'space-evenly',
                             width: '100%',
                         }}
                     >
