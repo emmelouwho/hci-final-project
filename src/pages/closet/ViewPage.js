@@ -16,9 +16,9 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function ViewPage(props) {
-    const listImages = props.images.map(url => (
+    const listImages = props.images.map( (url, index) => (
         <Grid item xs={4} key={url}>
-            <Item onClick={() => props.handleClick(url, props.type)}>
+            <Item onClick={() => props.handleClick(url, props.type, index)}>
                 <img src={url} />
             </Item>
         </Grid>

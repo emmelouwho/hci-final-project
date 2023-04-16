@@ -24,9 +24,12 @@ const GridButtons = styled(Grid)(() => ({
 export default function MakeOutfit(props) {
     return (
         <div className="make-outfit">
-            <Grid container spacing={2}>
-                {props.items.map(item => (
-                    <Grid item xs={6} key={item.type}>
+            <Grid container spacing={2} 
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center">
+                {props.items.map((item) => (
+                    <Grid item xs={3} key={item.type}>
                         <Item
                             onClick={() => {
                                 props.handleItemClick(item.type, true);
