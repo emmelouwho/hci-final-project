@@ -59,7 +59,6 @@ export default function Closet() {
     const handleModalClose = () => setModalOpen(false);
     const handleModalChange = e => {};
     const handleClickNav = (text, modOutfit) => {
-        console.log(modOutfit)
         if (modOutfit) setModOutfit(modOutfit);
         const lowerText = text.toLowerCase();
         navigate(`/closet/${lowerText}`);
@@ -67,7 +66,6 @@ export default function Closet() {
     };
 
     const handleClickOutfit = (newUrl, type) => {
-        console.log(items)
         if (modOutfit) {
             const updatedItems = items.map((item) => {
                 if (item.type.toLowerCase() === type && item.url === 'https://fortbendseniors.org/wp-content/uploads/2019/01/blank-white-square-thumbnail.jpg') {
