@@ -41,6 +41,7 @@ export default function Profile(props) {
         return (
             <>
                 {window.fits.map((element, id) => {
+                    console.log(element);
                     return (
                         <div key={id}>
                             <div
@@ -77,61 +78,19 @@ export default function Profile(props) {
                                 rowSpacing={1}
                                 columnSpacing={{ xs: 2, sm: 3, md: 4 }}
                             >
-                                <Grid item xs={3}>
+                                {element.map((item) => (
+                                    <Grid item xs={3}>
                                     <div>
                                         <img
                                             style={{
                                                 width: '100%',
                                                 height: '100%',
                                             }}
-                                            src={element[0]}
+                                            src={item}
                                         />
                                     </div>
                                 </Grid>
-                                <Grid item xs={3}>
-                                    <div>
-                                        <img
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                            }}
-                                            src={element[1]}
-                                        />
-                                    </div>
-                                </Grid>
-                                <Grid item xs={3}>
-                                    <div>
-                                        <img
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                            }}
-                                            src={element[2]}
-                                        />
-                                    </div>
-                                </Grid>
-                                <Grid item xs={3}>
-                                    <div>
-                                        <img
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                            }}
-                                            src={element[3]}
-                                        />
-                                    </div>
-                                </Grid>
-                                <Grid item xs={3}>
-                                    <div>
-                                        <img
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                            }}
-                                            src={element[4]}
-                                        />
-                                    </div>
-                                </Grid>
+                                ))}
                             </Grid>
                         </div>
                     );

@@ -2,6 +2,7 @@ import { Grid, Paper, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { TabScrollButton, Tab, Tabs } from "@mui/material";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -51,67 +52,86 @@ export default function MakeOutfit(props) {
                             direction="row"
                             justifyContent="flex-start"
                             alignItems="center">
-                
+                <Tabs 
+                    onChange = {() => {props.handleItemClick("Tops", true);}}
+                    variant = "scrollable"
+                    scrollButtons = "auto">
                     {tops.map((item) => (
-                        <Grid item xs={4} key={item.type}>
-                            <Item
-                                onClick={() => {
-                                    props.handleItemClick(item.type, true);
-                                }}
-                            >
-                                <img src={item.url} />
-                            </Item>
-                            <p>{item.type}</p>
-                        </Grid>
+                        <Tab 
+                            icon ={<img src={item.url} height="130px"/>}
+                            label = {item.type} 
+                            
+                        />
                     ))}
+                </Tabs>
+            </Grid>
+            <Grid container spacing={2} 
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center">
+                <Tabs 
+                    onChange = {() => {props.handleItemClick("Bottoms", true);}}
+                    variant = "scrollable"
+                    scrollButtons = "auto">
                     {bottoms.map((item) => (
-                        <Grid item xs={4} key={item.type}>
-                            <Item
-                                onClick={() => {
-                                    props.handleItemClick(item.type, true);
-                                }}
-                            >
-                                <img src={item.url} />
-                            </Item>
-                            <p>{item.type}</p>
-                        </Grid>
+                        <Tab 
+                            icon ={<img src={item.url} height="130px"/>}
+                            label = {item.type} 
+                            
+                        />
                     ))}
+                </Tabs>
+            </Grid>
+            <Grid container spacing={2} 
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center">
+                <Tabs 
+                    onChange = {() => {props.handleItemClick("Jewelry", true);}}
+                    variant = "scrollable"
+                    scrollButtons = "auto">
                     {jewelry.map((item) => (
-                        <Grid item xs={4} key={item.type}>
-                            <Item
-                                onClick={() => {
-                                    props.handleItemClick(item.type, true);
-                                }}
-                            >
-                                <img src={item.url} />
-                            </Item>
-                            <p>{item.type}</p>
-                        </Grid>
+                        <Tab 
+                            icon ={<img src={item.url} height="130px"/>}
+                            label = {item.type} 
+                            
+                        />
                     ))}
+                </Tabs>
+            </Grid>
+            <Grid container spacing={2} 
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center">
+                <Tabs 
+                    onChange = {() => {props.handleItemClick("Other", true);}}
+                    variant = "scrollable"
+                    scrollButtons = "auto">
                     {other.map((item) => (
-                        <Grid item xs={4} key={item.type}>
-                            <Item
-                                onClick={() => {
-                                    props.handleItemClick(item.type, true);
-                                }}
-                            >
-                                <img src={item.url} />
-                            </Item>
-                            <p>{item.type}</p>
-                        </Grid>
+                        <Tab 
+                            icon ={<img src={item.url} height="130px"/>}
+                            label = {item.type} 
+                            
+                        />
                     ))}
+                </Tabs>
+            </Grid>
+            <Grid container spacing={2} 
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center">
+                <Tabs 
+                    onChange = {() => {props.handleItemClick("Shoes", true);}}
+                    variant = "scrollable"
+                    scrollButtons = "auto">
                     {shoes.map((item) => (
-                        <Grid item xs={4} key={item.type}>
-                            <Item
-                                onClick={() => {
-                                    props.handleItemClick(item.type, true);
-                                }}
-                            >
-                                <img src={item.url} />
-                            </Item>
-                            <p>{item.type}</p>
-                        </Grid>
+                        <Tab 
+                            icon ={<img src={item.url} height="130px"/>}
+                            label = {item.type} 
+                            
+                        />
                     ))}
+                </Tabs>
             </Grid>
             <GridButtons container spacing={1}>
                 <Grid item xs={6}>

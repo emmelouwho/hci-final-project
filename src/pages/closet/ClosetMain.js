@@ -175,7 +175,9 @@ export default function Closet() {
                             redo={() => setItems(emptyItems)}
                             save={() => {
                                 var urls = [];
+                                
                                 items.forEach(element => {
+                                    if (element.url !== 'https://fortbendseniors.org/wp-content/uploads/2019/01/blank-white-square-thumbnail.jpg')
                                     urls.push(element.url);
                                 });
                                 window.fits.length
