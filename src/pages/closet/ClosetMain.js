@@ -45,6 +45,9 @@ export default function Closet() {
 
     const [top, setTop] = useState(false);
     const [bottom, setBottom] = useState(false);
+    const [jewelry, setJewelry] = useState(false);
+    const [other, setOther] = useState(false);
+    const [shoes, setShoes] = useState(false);
     const [currOutfit, setOutfit] = useState([]);
 
     const url = 'https://hci-final-a1f8e-default-rtdb.firebaseio.com';
@@ -64,19 +67,29 @@ export default function Closet() {
 
     const handleClickOutfit = (newUrl, type) => {
         if (modOutfit) {
-            const updatedItems = items.map(item => {
-                if (item.type.toLowerCase() === type) {
-                    if (type === 'tops') {
-                        setTop(newUrl);
+            const updatedItems = items.map((item) => {
+                if (item.type.toLowerCase() === type && item.url === 'https://fortbendseniors.org/wp-content/uploads/2019/01/blank-white-square-thumbnail.jpg') {
+                    if (type === 'tops'){
+                        return { ...item, url: newUrl };
                     }
                     if (type === 'bottoms') {
-                        setBottom(newUrl);
+                        return { ...item, url: newUrl };
                     }
-                    return { ...item, url: newUrl };
+                    if (type === 'jewelry') {
+                        return { ...item, url: newUrl };
+                    }
+                    if (type === 'other') {
+                        return { ...item, url: newUrl };
+                    }
+                    if (type === 'shoes') {
+                        return { ...item, url: newUrl };
+                    }
+                    return { ...item, url: item.url };
                 } else {
                     return item;
                 }
             });
+            updatedItems.push({type: type.charAt(0).toUpperCase() + type.slice(1), url: 'https://fortbendseniors.org/wp-content/uploads/2019/01/blank-white-square-thumbnail.jpg'});
             setItems(updatedItems);
             setModOutfit(false);
         }
@@ -179,6 +192,7 @@ export default function Closet() {
                             type="tops"
                             handleClick={handleClickOutfit}
                             images={topImages}
+
                         />
                     }
                 />

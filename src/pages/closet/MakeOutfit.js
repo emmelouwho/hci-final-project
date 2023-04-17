@@ -22,21 +22,96 @@ const GridButtons = styled(Grid)(() => ({
 }));
 
 export default function MakeOutfit(props) {
+    let tops = []
+    let bottoms = []
+    let jewelry = []
+    let other = []
+    let shoes = []
+    props.items.map((item) => {
+        if (item.type === 'Tops') {
+            tops.push(item);
+        }
+        if (item.type === 'Bottoms') {
+            bottoms.push(item);
+        }
+        if (item.type === 'Jewelry') {
+            jewelry.push(item);
+        }
+        if (item.type === 'Other') {
+            other.push(item);
+        }
+        if (item.type === 'Shoes') {
+            shoes.push(item);
+        }
+        
+    })
     return (
         <div className="make-outfit">
-            <Grid container spacing={2}>
-                {props.items.map(item => (
-                    <Grid item xs={6} key={item.type}>
-                        <Item
-                            onClick={() => {
-                                props.handleItemClick(item.type, true);
-                            }}
-                        >
-                            <img src={item.url} />
-                        </Item>
-                        <p>{item.type}</p>
-                    </Grid>
-                ))}
+            <Grid container spacing={2} 
+                            direction="row"
+                            justifyContent="flex-start"
+                            alignItems="center">
+                
+                    {tops.map((item) => (
+                        <Grid item xs={4} key={item.type}>
+                            <Item
+                                onClick={() => {
+                                    props.handleItemClick(item.type, true);
+                                }}
+                            >
+                                <img src={item.url} />
+                            </Item>
+                            <p>{item.type}</p>
+                        </Grid>
+                    ))}
+                    {bottoms.map((item) => (
+                        <Grid item xs={4} key={item.type}>
+                            <Item
+                                onClick={() => {
+                                    props.handleItemClick(item.type, true);
+                                }}
+                            >
+                                <img src={item.url} />
+                            </Item>
+                            <p>{item.type}</p>
+                        </Grid>
+                    ))}
+                    {jewelry.map((item) => (
+                        <Grid item xs={4} key={item.type}>
+                            <Item
+                                onClick={() => {
+                                    props.handleItemClick(item.type, true);
+                                }}
+                            >
+                                <img src={item.url} />
+                            </Item>
+                            <p>{item.type}</p>
+                        </Grid>
+                    ))}
+                    {other.map((item) => (
+                        <Grid item xs={4} key={item.type}>
+                            <Item
+                                onClick={() => {
+                                    props.handleItemClick(item.type, true);
+                                }}
+                            >
+                                <img src={item.url} />
+                            </Item>
+                            <p>{item.type}</p>
+                        </Grid>
+                    ))}
+                    {shoes.map((item) => (
+                        <Grid item xs={4} key={item.type}>
+                            <Item
+                                onClick={() => {
+                                    props.handleItemClick(item.type, true);
+                                }}
+                            >
+                                <img src={item.url} />
+                            </Item>
+                            <p>{item.type}</p>
+                        </Grid>
+                    ))}
             </Grid>
             <GridButtons container spacing={1}>
                 <Grid item xs={6}>
